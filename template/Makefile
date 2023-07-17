@@ -13,3 +13,11 @@ publish_package:
 
 git_log:
 	@git log --all --graph --decorate --oneline
+	
+start_tensorboard:
+	@tensorboard --logdir=runs --port 1243
+
+clean_tensorboard:
+	@rm -r ./runs
+
+
