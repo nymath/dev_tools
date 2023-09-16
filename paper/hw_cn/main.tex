@@ -1,0 +1,75 @@
+\documentclass[12pt]{article}
+
+% using Chinese
+\usepackage[UTF8]{ctex}
+
+% load package
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{fancyhdr} % load fancyhdr
+\usepackage{tcolorbox}
+\usepackage{booktabs} % This package provides nicer table lines
+\usepackage{caption} % This package allows for the customization of captions for tables and figures
+\usepackage{subcaption}
+
+% cumtom symbols
+\input{./src/symbols.tex}
+
+% set page margin
+\setlength{\headheight}{15pt}
+\geometry{
+  a4paper,
+  top=2.5cm,
+  bottom=2.5cm,
+  left=2cm,
+  right=2cm
+}
+
+% set header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{nanyi}
+\lhead{\textrm{homework}}
+\rfoot{\textrm{Page} \thepage}
+
+
+\begin{document}
+
+% title
+\title{title}
+\author{author}
+\date{\today}
+\maketitle
+
+% % abstract
+% \begin{abstract}
+%   aabb
+% \end{abstract}
+% % table of contents
+% \tableofcontents
+
+\newpage
+\section*{问题 1}
+\begin{tcolorbox}
+问题模版
+\end{tcolorbox}
+
+% 问题 1 的解答
+\subsection*{解答}
+
+12\cite{avellaneda2008high}
+123\cite{aabb}
+
+
+\input{./src/example_figure.tex}
+\input{./src/example_table.tex}
+
+\newpage
+\bibliographystyle{siam}
+\bibliography{./src/references}
+\end{document}
