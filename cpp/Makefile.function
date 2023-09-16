@@ -1,0 +1,31 @@
+define remove_suffix
+$(basename $1)
+endef
+
+define remove_path
+$(notdir $1)
+endef
+
+define remove_path_and_suffix
+$(basename $(notdir $1))
+endef
+
+define join_with_folder_and_suffix
+$(addprefix $(folder)/,$(1))$(suffix)
+endef
+
+
+define dependency_rule
+	@mkdir -p $(@D)
+	@set -e; rm -f $@; \
+	$(CXX) $(INCLUDE_FLAGS) -M $(CFLAGS) $< > $@.$$$$; \
+	sed 's,\($(call remove_path_and_suffix,$(<))\)\.o[ :]*,build/\1.o $@ : ,g' < $@.$$$$ > $@; \
+	rm -f $@.$$$$
+endef
+
+define compile_rule
+	@mkdir -p $(@D)
+	$(CXX) $(CFLAGS) $(INCLUDE_FLAGS) -c $< -o $@
+endef
+
+
